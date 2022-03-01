@@ -1,0 +1,29 @@
+/*
+blue: #3A8BD4
+sand: #D5BAA1
+orange: #D76D5F
+*/
+
+body{
+  font-family: sans-serif;
+}
+a{
+  text-decoration: none;
+  color:inherit;
+}
+header{
+  background-color: rgba(30,144,255, 0.7);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 8rem;
+  color:#2c2c2c;
+  
+}
+header ul{
+  display:flex;
+  grid-gap: 2rem;
+  list-style: none;
+  
+}
