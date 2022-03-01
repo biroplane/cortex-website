@@ -27,3 +27,11 @@ header ul{
   list-style: none;
   
 }
+
+main{
+  display: grid;
+  max-width: 960px;
+  margin: 0 auto;
+  grid-template-columns: 3fr 1fr;
+  
+}
