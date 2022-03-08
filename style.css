@@ -4,7 +4,7 @@ sand: #D5BAA1
 orange: #D76D5F
 */
 
-body{
+/* body{
   font-family: sans-serif;
 }
 a{
@@ -28,10 +28,23 @@ header ul{
   
 }
 
+header ul li{
+
+}
+
+header ul li a{
+  
+}
+
 main{
   display: grid;
   max-width: 960px;
   margin: 0 auto;
   grid-template-columns: 3fr 1fr;
   
+} */
+
+
+.navlink{
+  @apply hover:bg-red-500;
 }
