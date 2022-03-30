@@ -26,14 +26,22 @@
   </header>
   <main class="grid grid-cols-4 container mx-auto gap-4">
     <article class="col-span-4 md:col-span-3">
-      <ul class="my-tasks mt-12">
-        <li>
+      <div class=" mt-12 flex gap-12">
+        <div class="">
           <input type="text" placeholder="Add a task" class="p-2 border border-gray-300 rounded-lg task-input">
           <button class="add-task-btn px-4 py-2 bg-orange-500 text-white rounded-lg">Add</button>
+        </div>
+        <div class="">
+          <input type="text" placeholder="Edit a task" class="p-2 border border-gray-300 rounded-lg filter-task-input">
+          <button class="filter-task-btn px-4 py-2 bg-orange-500 text-white rounded-lg">🔍</button>
+        </div>
+      </div>
+      <!-- <ul class="my-tasks mt-12">
+        <li>
         </li>
-      </ul>
+      </ul> -->
       <div class="todo-list-raw"></div>
-      <ol class="todo-tasks"></ol>
+      <ol class="todo-tasks mt-12"></ol>
     </article>
     <aside class="col-span-4 md:col-span-1" >
       <ul>
