@@ -19,6 +19,18 @@ filterTaskBtn.addEventListener('click',()=>{
   updateList()
 })
 
+let number = 12.457024935702349570239452093457
+number.toFixed(2) // "12.45"
+number.toFixed(4) // "12.4570" => 12.457
+
+
+//let isOdd = 3 % 2 // 1
+// 1.5 , 2 =>  "1.5" "2.0" => [1,5] [2,0] => 5 > 0, 0 > 0
+function isOdd(a){
+  return (a / 2).toFixed(1).split('.')[1].length>0
+}
+
+let selectedTask
 
 let todoList = [
   {text:"Read a book", status:'todo'},
@@ -36,7 +48,6 @@ addTaskBtn.addEventListener('click',function(){
 
 
 
-let selectedTask
 
 function updateList(){
   todoTask.innerHTML = ''
@@ -52,7 +63,7 @@ function updateList(){
     editBtn.addEventListener('click',function(){
       console.log("Edit this item", todo)
       selectedTask = todo
-      taskEditInput.value = todo.text
+      // taskEditInput.value = todo.text
       // editTask(todoList[i])
     })
     deleteBtn.innerHTML = 'Delete'
