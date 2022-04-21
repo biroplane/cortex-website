@@ -6,6 +6,9 @@ let isHeCool = true
 let job = null | undefined
 
 let first_name = "Gaetano"
+let a = "Variable"
+let b = 'Variable'
+let c = `Helo my name is ${first_name}` // hello my name is Gaetano
 
 
 {

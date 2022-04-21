@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+const navigation = [
+  { label: "Home", path: "/" },
+  { label: "Pokemons", path: "/pokemons" },
+  { label: "About", path: "/about" },
+  { label: "Todo List", path: "/todolist" },
+];
+</script>
 <template>
   <header
     class="flex items-center justify-around h-32 bg-blue-300 text-gray-800"
@@ -7,22 +14,10 @@
       <a href="#" class="font-bold text-7xl">Cortex</a>
     </h1>
     <ul class="flex gap-8 list-none">
-      <li class="hover:bg-red-500">
-        <a href="https://google.it" class="">Item 1</a>
-      </li>
-      <li class="hover:bg-red-500">
-        <a
-          href="https:www.bdfglgkdjfhglkdjfhglkjdfhglkdjfhglkjsfhdglskjdfhg.com"
-          class=""
-        >
-          Item 2
-        </a>
-      </li>
-      <li class="hover:bg-red-500">
-        <a href="#Article1" class="">Item 3</a>
-      </li>
-      <li class="hover:bg-red-500">
-        <a href="#" class="">Item 4</a>
+      <li class="hover:bg-red-500" v-for="(nav, n) in navigation" :key="n">
+        <router-link :to="nav.path" active-class="p-4 bg-yellow-400">{{
+          nav.label
+        }}</router-link>
       </li>
     </ul>
   </header>
