@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import Pokedeck from "../components/Pokedeck.vue";
+import Pokedeck from "@/components/Pokedeck.vue";
 </script>
 
 <style></style>

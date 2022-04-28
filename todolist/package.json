@@ -10,6 +10,8 @@
   "dependencies": {
     "@vue/eslint-config-prettier": "^7.0.0",
     "axios": "^0.26.1",
+    "lodash": "^4.17.21",
+    "vite-plugin-dynamic-import": "^0.9.1",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14"
   },

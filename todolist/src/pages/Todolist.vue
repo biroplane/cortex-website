@@ -27,7 +27,15 @@
     </div>
 
     <ul class="mt-12">
-      <li
+      <list-item
+        v-for="(todo, t) in filteredTodo"
+        :key="t"
+        :todo="todo"
+        @update="updateStatus"
+        @delete="deleteTask"
+        @update-task="updateTask"
+      ></list-item>
+      <!-- <li
         v-for="(todo, t) in filteredTodo"
         :key="t"
         class="flex py-3 px-4 bg-gray-100 rounded-lg mb-2"
@@ -44,38 +52,63 @@
           <button>🖋</button>
           <button @click="deleteTask(t)">🗑</button>
         </div>
-      </li>
+      </li> -->
     </ul>
   </main>
 </template>
 
 <script setup>
+import ListItem from "@/components/ListItem.vue";
 import { computed, ref } from "vue";
 import MyInputText from "../components/MyInputText.vue";
-let todoList = ref([
-  { text: "Read a book", completed: false },
-  { text: "Buy groceries", completed: false },
-  { text: "Call the doctor", completed: false },
-  { text: "Learn JS", completed: false },
-  { text: "Update my CV", completed: false },
-]);
+
+/**
+ * 1. Read localStorage
+ * 2. Set todoList to localStorage
+ * 3. Add todoList to localStorage
+ */
+
+const _todoListStorage = localStorage.todoList || [];
+console.log("LocalStorage ", _todoListStorage);
+let todoList = ref(JSON.parse(_todoListStorage));
+
+const updateLocalStorage = () => {
+  localStorage.setItem("todoList", JSON.stringify(todoList.value));
+};
+
 let newTask = ref("hello");
 const addTask = () => {
   console.log("Adding task...");
   todoList.value.push({ text: newTask.value, completed: false });
   newTask.value = "";
+  updateLocalStorage();
 };
 const updateStatus = (index) => {
-  console.log("Updating ", index);
-  todoList.value[index].completed = true;
+  const _index = todoList.value.findIndex((todo) => todo.text === index.text);
+  console.log("Updating ", _index);
+  todoList.value[_index].completed = !todoList.value[_index].completed;
+  updateLocalStorage();
 };
 const deleteTask = (index) => {
-  console.log("Deleting ", index);
-  todoList.value.splice(index, 1);
+  const _index = todoList.value.findIndex((todo) => todo.text === index.text);
+
+  console.log("Deleting ", _index);
+  todoList.value.splice(_index, 1);
+  updateLocalStorage();
 };
 const updateTask = (event, index) => {
-  console.log("Updating ", event.target.innerText, index);
-  todoList.value[index].text = event.target.innerText;
+  const _index = todoList.value.findIndex((todo) => todo.text === index.text);
+  console.log("Updating tansk value ", event.target.innerText, _index);
+
+  todoList.value[_index].text = event.target.innerText;
+  var endTyping = false;
+  const to = setTimeout(() => {
+    updateLocalStorage();
+    endTyping = true;
+    clearInterval(to);
+    console.log("EndType", endTyping);
+    return;
+  }, 1000);
 };
 
 const update = (e) => {
